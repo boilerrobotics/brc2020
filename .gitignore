@@ -1,4 +1,3 @@
-.vscode/
 .idea
 *.jpeg
 venv/
@@ -6,5 +5,4 @@ venv/
 build/
 install/
 log/
-*.txt
 *.pyc
