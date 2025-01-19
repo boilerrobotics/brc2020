@@ -15,6 +15,14 @@ This ROS working space is tested on ROS Humble on Ubuntu 22.04 LTS.
 Installation guide can be found in [tutorial](./tutorial/)
 To run the code, you will need to compile and install.
 
+### Python Virtual Environment
+
+If you use Python virtual environment, you will need to create the virtual environment using extra option as below
+
+```bash
+python3 -m venv .venv --system-site-packages
+```
+
 ### To compile
 
 ```bash
@@ -47,6 +55,12 @@ However, this only works with Python packages.
 colcon build --symlink-install
 ```
 
+Note2: If you use virtual environment, you should use the following command to compile the code.
+
+```bash
+python -m colcon build
+```
+
 ## Dependencies
 
 Some packages have dependencies.
@@ -71,10 +85,6 @@ Use the following list and this [tutorial](https://docs.ros.org/en/humble/Tutori
 
 - [ROS base](https://github.com/ros/rosdistro/blob/master/rosdep/base.yaml)
 - [Python](https://github.com/ros/rosdistro/blob/master/rosdep/python.yaml)
-
-We also use custom-made interfaces from [brc_msgs](https://github.com/boilerrobotics/brc_msgs).
-Clone or download [brc_msgs](https://github.com/boilerrobotics/brc_msgs) into the same location as this repo is required.
-Since this repo depends on `brc_msgs`, you will need to build and install packages from `brc_msgs` as well.
 
 ### Automated Setup
 

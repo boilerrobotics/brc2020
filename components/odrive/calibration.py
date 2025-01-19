@@ -8,7 +8,7 @@ async def calibrate(odrv: Odrive):
     odrv.check_errors()  # Checking errors before starting
     # set configurations then reboot if needed
     if odrv.config.set_break_resistor(0.5) | odrv.set_configs():
-        print(f"need to reset the system for new configurations")
+        print("need to reset the system for new configurations")
         await odrv.reboot(save_config=True)
     await odrv.calibrate()
     if odrv.has_errors():

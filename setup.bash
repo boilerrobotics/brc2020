@@ -3,12 +3,6 @@
 # current directory
 cwd=$(pwd)
 
-# install brc_msgs interfaces
-echo 'installing interfaces...'
-cd ../brc_msgs
-colcon build
-source install/setup.bash
-
 # build packages
 echo ' '
 echo 'installing packages...'

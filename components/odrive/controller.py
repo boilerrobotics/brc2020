@@ -46,7 +46,19 @@ class Controller(Error):
         """
         self.set_speed(0)
 
-    def set_configs(self) -> bool:
+    def get_speed_limit(self) -> float:
+        """
+        Return speed limit in turn per second
+        """
+        return self.controller.config.vel_limit
+
+    def set_speed_limit(self, speed: float) -> None:
+        """
+        Set speed limit in turn per second
+        """
+        self.controller.config.vel_limit = speed
+
+    def set_configs(self, vel_limit=10) -> bool:
         """
         Full document: https://docs.odriverobotics.com/v/0.5.4/fibre_types/com_odriverobotics_ODrive.html#ODrive.Controller.Config
 
@@ -65,7 +77,7 @@ class Controller(Error):
         # https://docs.odriverobotics.com/v/0.5.4/fibre_types/com_odriverobotics_ODrive.html#ODrive.Controller.ControlMode.VELOCITY_CONTROL
         self.controller.config.control_mode = ControlMode.VELOCITY_CONTROL
         # https://docs.odriverobotics.com/v/0.5.4/fibre_types/com_odriverobotics_ODrive.html#ODrive.Controller.Config.vel_limit
-        self.controller.config.vel_limit = 10
+        self.controller.config.vel_limit = vel_limit
         # https://docs.odriverobotics.com/v/0.5.4/fibre_types/com_odriverobotics_ODrive.html#ODrive.Controller.InputMode.VEL_RAMP
         self.controller.config.input_mode = InputMode.VEL_RAMP
         # https://docs.odriverobotics.com/v/0.5.4/fibre_types/com_odriverobotics_ODrive.html#ODrive.Controller.Config.vel_ramp_rate
